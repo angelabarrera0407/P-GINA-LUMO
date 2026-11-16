@@ -1,0 +1,85 @@
+/* =========================================================
+   LUMO · MEJORAS 13 · COLORES DE BOTONES Y TÍTULOS
+   Solo cambia colores. No toca imágenes ni sus rutas.
+   Cambia los valores de abajo (los que están después de los dos puntos).
+   Ahora mismo tienen los colores actuales: no cambia nada hasta que los edites.
+   ========================================================= */
+:root{
+  /* MENÚ (Inicio, Juega con LUMO, Comunidad, Contáctanos) */
+  --menu-fondo:var(--t);
+  --menu-hover:var(--b);
+  --menu-activo:var(--td);
+
+  /* INICIO: nubes (Empático, Curioso, Protector) y botones ¿Qué necesita un animal? */
+  --inicio-nube:var(--t);
+  --inicio-nube-hover:var(--b);
+  --inicio-nube-activa:var(--td);
+
+  /* Botones de formulario / ventanas / "ir a Comunidad" */
+  --boton-fondo:var(--t);
+  --boton-hover:var(--b);
+
+  /* JUEGOS */
+  --juego-boton:var(--t);          /* botones principales del juego */
+  --juego-boton-activo:var(--td);  /* botón seleccionado */
+  --juego-no:var(--rosa);          /* botón "no" (borde y texto) */
+  --juego-reiniciar:var(--petroleo);
+
+  /* TÍTULOS */
+  --titulo-color:var(--t);
+}
+
+/* Menú */
+nav > button{background:var(--menu-fondo) !important;}
+nav > button:hover{background:var(--menu-hover) !important;}
+nav > button.on,nav > button.on:hover{background:var(--menu-activo) !important;}
+
+/* Inicio (nubes) */
+.lumo-buttons button,.pill{--c:var(--inicio-nube);}
+.lumo-buttons button:hover,.pill:hover{--c:var(--inicio-nube-hover);}
+.pill.on,.pill.on:hover{--c:var(--inicio-nube-activa);}
+
+/* Otros botones */
+form button,dialog button,.community-main-link{background:var(--boton-fondo) !important;}
+form button:hover,dialog button:hover,.community-main-link:hover{background:var(--boton-hover) !important;}
+
+/* Juegos */
+.juego-pill,.jg-btn{background:var(--juego-boton);}
+.juego-pill.on{background:var(--juego-boton-activo);}
+.jg-btn-no{color:var(--juego-no);box-shadow:inset 0 0 0 2px var(--juego-no);}
+.jg-btn-no:hover{background:var(--juego-no);color:#fff;}
+.jg-reset{color:var(--juego-reiniciar);}
+
+/* Títulos */
+h2,.meet-text h2{color:var(--titulo-color);}
+
+
+/* =========================================================
+   INICIO · "¿Sabes qué necesita un animal para estar bien?"
+   Sin fondo lila: continúa el fondo blanco con patitas y huesos.
+   La caja de los botones queda del color de las cajas de los juegos.
+   ========================================================= */
+.needs-section{
+  background:none;
+  box-shadow:none;
+  clip-path:none;
+}
+
+.need{
+  background:var(--l);
+  border:0;
+  box-shadow:none;
+}
+
+/* =========================================================
+   COMUNIDAD · "LUMO también se construye contigo."
+   Fondo blanco solo en esa parte.
+   ========================================================= */
+.community-social{
+  background:#fff;
+}
+
+/* Sin el círculo de la esquina inferior izquierda */
+.community-social::after{
+  content:none;
+}

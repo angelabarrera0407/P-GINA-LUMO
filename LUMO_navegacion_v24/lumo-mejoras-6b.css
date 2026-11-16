@@ -1,0 +1,17 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 6b)
+   Se carga DESPUÉS de lumo-mejoras-6.css.
+   Cambios de esta ronda (solo Contáctanos):
+   - Fondo de Contáctanos en verde petróleo
+   - En su pantalla individual (menú "Contáctanos"), el fondo va
+     sin redondear arriba, como un fondo completo
+   Para deshacerlos, quita el <link> de este archivo.
+   ========================================================= */
+
+.contact{
+  background:#82c9b7;
+}
+
+.lumo-view[data-view="contacto"] .contact{
+  border-radius:0;
+}

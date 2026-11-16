@@ -1,0 +1,73 @@
+/* =========================================================
+   LUMO · MEJORAS 17
+   1) Títulos del principio de cada sección en #7198c8.
+   2) Juega con LUMO: debajo de los juegos va el material
+      interactivo de Adobe (Publish Online) dentro de la página.
+   Se carga DESPUÉS de lumo-mejoras-15.css.
+   No toca imágenes ni sus nombres.
+   Para deshacerlo, quita el <link> de este archivo y el bloque
+   <div class="lumo-embed"> de index.html.
+   ========================================================= */
+
+:root{
+  --titulo-seccion:#7198c8;
+  --titulo-color:var(--titulo-seccion);
+  --lumo-embed-proporcion:4 / 3;   /* proporción del material (ancho / alto) */
+}
+
+
+/* ---------- 1) TÍTULOS DE SECCIÓN ---------- */
+
+h2,
+.meet-text h2,
+.community-support-copy h2,
+.community-social-copy h2,
+.section-title-logo,
+.section-title-logo span,
+.juega-title,
+.juega-title span{
+  color:var(--titulo-seccion);
+}
+
+
+/* ---------- 2) MATERIAL INTERACTIVO DENTRO DE LA PÁGINA ---------- */
+
+.lumo-embed{
+  max-width:1000px;
+  margin:56px auto 0;
+  padding:0 16px;
+  text-align:center;
+}
+
+.lumo-embed h2{
+  margin-bottom:18px;
+}
+
+.lumo-embed-marco{
+  width:100%;
+  background:#fff;
+  border:1px solid #d6ebeb;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 26px #00665f12;
+}
+
+.lumo-embed-marco iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:var(--lumo-embed-proporcion);
+  border:0;
+}
+
+.lumo-embed-link{
+  display:inline-block;
+  margin-top:12px;
+  color:var(--td);
+  font-weight:600;
+  font-size:14px;
+}
+
+@media(max-width:700px){
+  .lumo-embed{ margin-top:40px; }
+  .lumo-embed-marco iframe{ aspect-ratio:auto; height:72vh; min-height:420px; }
+}

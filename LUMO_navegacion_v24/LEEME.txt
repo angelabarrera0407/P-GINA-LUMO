@@ -1,0 +1,158 @@
+LUMO - versión con navegación por secciones.
+
+El diseño visual de Styles.css y comunidad.css se conserva del ZIP original.
+Inicio reúne el contenido de Inicio y Conoce a LUMO. El menú tiene Inicio, Juega con LUMO, Comunidad LUMO y Contáctanos.
+Abre index.html con Live Server para probarlo.
+
+Tipografía: toda la página utiliza Nunito Sans. Se conservan los pesos (regular, semibold y bold) para mantener la jerarquía visual.
+
+MEJORAS VISUALES: lumo-mejoras-2.css
+Cada ronda de cambios va en un archivo CSS aparte, cargado despues de Styles.css y comunidad.css. No se tocan los archivos originales.
+Version 2: colores originales; lineas y circulos de fondo (azul, rosado y petroleo); franja petroleo en menu y footer;
+fondo verde agua marina muy claro; botones en forma de nube.
+Para volver al diseno original, quita la linea <link ... lumo-mejoras-2.css> de index.html.
+La carpeta mejoras-anteriores guarda la version 1 (con mas colores) por si quieres recuperar algo.
+
+Version 3: lumo-mejoras-3.css (se carga despues de lumo-mejoras-2.css)
+Nubes con bultos arriba y abajo en los botones, frase del inicio dentro de una nube petroleo,
+Contactanos con fondo completo (sin bordes redondeados) y tarjetas de "Por que es importante" con mas color.
+En index.html deben estar enlazados SOLO estos CSS, en este orden: Styles.css, comunidad.css, lumo-mejoras-2.css, lumo-mejoras-3.css.
+No enlaces lumo-mejoras.css (version 1): es la que tiene amarillo y naranja.
+
+Version 4: lumo-mejoras-4.css (se carga despues de lumo-mejoras-3.css)
+Nubes solo en "Conoce a LUMO" (Empatico, Curioso, Protector) y en "Que necesita un animal"; los demas botones vuelven a rectangulares redondeados.
+Fondo #c9fbff; lineas y circulos en #e16887, #7198c8, #f5a6b8, #3c096c y #12505d; franja de Contactanos #006d77.
+Orden de los CSS en index.html: Styles.css, comunidad.css, lumo-mejoras-2.css, lumo-mejoras-3.css, lumo-mejoras-4.css.
+
+Version 5: lumo-mejoras-5.css (se carga despues de lumo-mejoras-4.css)
+Fondo y colores de las secciones como en el original; frase del inicio en rectangulo redondeado petroleo;
+Contactanos con su color y su forma redondeada originales. Se conservan lineas y circulos de fondo, franja petroleo del menu y nubes en dos secciones.
+Orden de los CSS en index.html: Styles.css, comunidad.css, lumo-mejoras-2.css, lumo-mejoras-3.css, lumo-mejoras-4.css, lumo-mejoras-5.css.
+
+Version 6: lumo-mejoras-6.css (se carga despues de lumo-mejoras-5.css)
+Tarjetas de "Por que es importante" con el estilo de la version 3; Contactanos sin circulos ni lineas;
+footer del mismo color que el fondo de Contactanos; circulos solo en rosado y azul claro;
+siluetas de huesitos y patitas moradas en baja opacidad (se pueden cambiar en la variable --siluetas, o la opacidad en .lumo-view::before).
+Orden de los CSS en index.html: Styles.css, comunidad.css, lumo-mejoras-2.css ... lumo-mejoras-6.css.
+
+Version 6b: lumo-mejoras-6b.css (se carga despues de lumo-mejoras-6.css)
+Fondo de Contactanos en verde petroleo (#12505d); en su pantalla individual (menu "Contactanos") queda sin redondear arriba.
+Orden de los CSS en index.html: Styles.css, comunidad.css, lumo-mejoras-2.css ... lumo-mejoras-6.css, lumo-mejoras-6b.css.
+
+Version 7: lumo-mejoras-7.css (se carga despues de lumo-mejoras-6b.css)
+Footer (Servicios y Profesionales) con el mismo fondo de Contactanos (#12505d) y texto blanco.
+Tamanos de texto como en el original; solo los mini subtitulos (h3 y titulos del footer) suben 1 punto.
+Orden de los CSS en index.html: Styles.css, comunidad.css, lumo-mejoras-2.css ... lumo-mejoras-6b.css, lumo-mejoras-7.css.
+Frase inicial (arriba del logo): fondo petroleo con opacidad baja y letra petroleo, misma forma. En "Que es LUMO?" la frase destacada sube de 14 a 17 px.
+
+Version 8: lumo-mejoras-8.css + juego.js (pantalla "Juega con LUMO")
+Titulo "Juguemos con LUMO!", menu de juegos (Cuida a LUMO y Rompecabezas "Proximamente") y el juego "Cuida a LUMO":
+dar de comer, agua, jugar, consentir y pegar (LUMO se asusta y explica por que no se hace). El progreso se guarda en el navegador.
+En index.html: lumo-mejoras-8.css va despues de lumo-mejoras-7.css y <script src="juego.js"></script> va al final, despues del script principal.
+El texto de la pantalla (HTML) esta en index.html (busca views.juega.innerHTML); los mensajes y velocidades estan en juego.js (MENSAJES y DECAY).
+Imagenes de LUMO (opcionales, carpeta img/; si no existen se ve el espacio con su etiqueta):
+  lumo-hambre.png, lumo-sed.png, lumo-aburrido.png, lumo-triste.png, lumo-comiendo.png,
+  lumo-bebiendo.png, lumo-jugando.png, lumo-consentido.png, lumo-asustado.png
+Ya usa "perrito feliz inicio.png" (feliz) y "Perritodurmiendo inicio.png" (durmiendo).
+
+Menu de juegos (version 8b): ademas de "Cuida a LUMO" (listo), el menu tiene "Aventura de LUMO", "Colorea a LUMO",
+"Visita al veterinario" y "Rompecabezas", todos con la etiqueta PROXIMAMENTE (bloques .juego-opcion en index.html, dentro de views.juega.innerHTML).
+Cuando un juego este listo, quita el atributo disabled de su boton y la etiqueta <span class="juego-soon">.
+
+Aventura de LUMO (version 9): aventura.js + estilos al final de lumo-mejoras-8.css. Historia en 4 pasos con decisiones
+(edita PASOS y FINAL en aventura.js). Imagenes opcionales en img/: aventura-1.png ... aventura-5.png
+(el final usa "perrito feliz inicio.png" si no existe aventura-5.png).
+El menu de juegos cambia de juego con los botones (data-juego en el boton y en .juego-panel).
+
+Version 10: Colorea a LUMO (colorea.js + estilos al final de lumo-mejoras-8.css)
+Dibujo: img/colorea-lumo.png (lineas negras sobre fondo blanco; limpiado de tu captura). Para cambiarlo, reemplaza ese archivo con el mismo nombre.
+Herramientas: rellenar (bote), pincel, borrador, deshacer, borrar todo y descargar (PNG).
+Importante: el bote y la descarga necesitan abrir la pagina con Live Server (con doble clic el navegador bloquea leer el dibujo; el pincel si funciona).
+Se quito el Rompecabezas del menu de juegos y el subrayado del titulo "Juguemos con LUMO!".
+El menu queda: Cuida a LUMO, Aventura de LUMO, Colorea a LUMO (listos) y Visita al veterinario (Proximamente).
+
+Version 11: lumo-mejoras-9.css (se carga despues de lumo-mejoras-8.css)
+Inicio rediseñado con el estilo de cajitas de Comunidad (mismo contenido e imagenes; la portada del logo no se toco):
+- ¿Que es LUMO?: tarjeta con la frase destacada y el parrafo en cajas, imagen al lado.
+- Conoce a LUMO: el texto va en una tarjeta blanca sobre la banda celeste.
+- ¿Por que es importante?: 3 tarjetas en fila con la huella en un circulo, y la frase final en un recuadro.
+- ¿Que necesita un animal?: banda lila con tarjeta blanca alrededor de LUMO y los botones.
+Para deshacerlo, quita el <link> de lumo-mejoras-9.css en index.html.
+
+Version 12:
+- Colorea a LUMO ya funciona abriendo index.html directamente (sin Live Server): el dibujo va incrustado en colorea-dibujo.js
+  (copia de img/colorea-lumo.png). Si se cambia el dibujo hay que volver a generar colorea-dibujo.js.
+- Visita al veterinario (veterinario.js): se revisa a LUMO con 6 herramientas (corazon, temperatura, peso, dientes, orejas, vacuna),
+  la barra Tranquilidad baja y se recupera con "Calmar a LUMO"; al terminar sale el carnet de salud. Textos en HERRAMIENTAS y FINAL.
+  Imagenes opcionales en img/: vet-inicio, vet-corazon, vet-temperatura, vet-peso, vet-dientes, vet-orejas, vet-vacuna, vet-calma, vet-final (.png)
+  (el final usa "perrito feliz inicio.png" si no existe vet-final.png).
+- Los cuatro juegos del menu ya estan listos; ya no hay etiquetas "Proximamente".
+
+Version 13:
+- Se quito el juego "Aventura de LUMO" (ya no existe aventura.js ni su boton en el menu).
+- Visita al veterinario rehecho (veterinario.js): LUMO esta en el consultorio y el veterinario pregunta que instrumento necesita
+  (6 preguntas). El nino toca o arrastra el instrumento y este viaja hasta LUMO. Si se equivoca, LUMO se pone nervioso o triste
+  y se explica para que sirve ese instrumento. "Calmar a LUMO" recupera la tranquilidad. Al final sale el carnet de salud.
+  Textos en INSTRUMENTOS, RONDAS y FINAL.
+  Imagenes de LUMO en img/ (.png): vet-lumo-tranquilo, vet-lumo-nervioso, vet-lumo-triste, vet-lumo-feliz
+  Imagenes de instrumentos en img/ (.png): vet-estetoscopio, vet-termometro, vet-bascula, vet-otoscopio, vet-linterna, vet-vacuna
+  (sin ellas se ven los espacios con su etiqueta).
+Juegos del menu: Cuida a LUMO, Colorea a LUMO y Visita al veterinario.
+
+Version 14: lumo-mejoras-10.css (se carga despues de lumo-mejoras-9.css)
+Portada de Inicio completa en cualquier pantalla, con esquinas cuadradas. Su proporcion se toma sola de la imagen
+(codigo nuevo dentro del <script> de index.html, en la carga de imagenes), asi que funciona con cualquier tamano de PORTADALUMO.png.
+
+Version 15: lumo-mejoras-15.css (se carga despues de lumo-mejoras-14.css)
+- Juega con LUMO: se quito "Colorea a LUMO" (boton, panel y scripts; se borraron colorea.js y colorea-dibujo.js).
+  "Visita al veterinario" queda de primero en el menu y es el que se abre al entrar.
+- Visita al veterinario: el carnet final ("Lo has logrado") sale como pop-up encima de la pagina (codigo en veterinario.js,
+  estilos en lumo-mejoras-15.css). Se cierra con "Otra revision", tocando fuera de la ventana o con Esc.
+- Comunidad, "LUMO tambien se construye contigo": Instagram, Facebook, TikTok y YouTube ahora son los iconos de cada app
+  (SVG dentro de index.html, no necesitan imagenes). Los enlaces siguen en "#": reemplazalos por los oficiales.
+
+Version 17: lumo-mejoras-17.css (se carga despues de lumo-mejoras-15.css)
+- Titulos del principio de cada seccion (h2 y "Que es LUMO?", "Juguemos con LUMO!") en #7198c8. Se cambia en --titulo-seccion.
+- Juega con LUMO: debajo de los juegos aparece, dentro de la pagina, el material interactivo de Adobe (iframe en index.html,
+  bloque <div class="lumo-embed">). Debajo tiene el enlace "Abrir en otra ventana". Si el material se ve muy alto o muy bajo,
+  cambia --lumo-embed-proporcion en el CSS. Necesita internet para cargar.
+
+Version 18: lumo-mejoras-18.css (se carga despues de lumo-mejoras-17.css)
+- Frase de Inicio (arriba de la foto) y frase final de "Por que es importante": letra mas pequena, caja ajustada al texto (width:fit-content) y text-wrap:balance para evitar palabras huerfanas.
+- Comunidad, redes: Instagram, Facebook, TikTok y YouTube del mismo color (#7298c7, variable --redes-color), planos y en negativo (dibujo blanco sobre el color).
+- 18b: iconos mas minimalistas (Facebook ahora es solo la "f"), dibujo blanco sin sombra sobre recuadro #7298c7.
+
+Version 19: lumo-mejoras-19.css (se carga despues de lumo-mejoras-18.css)
+- Menu: caja de fondo #edf7fc (--menu-caja) y botones en reposo #7298c7 (--menu-fondo). Hover y boton activo quedan como estaban.
+- Portada de Inicio: su fondo es del mismo color que la caja del menu (#edf7fc).
+- Circulos decorativos pequenos en #f5a6b8 con baja opacidad (--circulos-color, --circulos-opacidad), colocados lejos de las
+  huellitas y huesitos: 3 en Inicio, 2 en Juega con LUMO y 3 en Comunidad (algunos quedan tapados por las cajas de color, es normal).
+  Sus posiciones estan calculadas para el dibujo actual del fondo; si cambia, hay que volver a acomodarlos.
+
+Revisar imagenes: revisar-imagenes.html (en la misma carpeta que index.html)
+Abrelo con doble clic o Live Server: muestra que imagenes carga la pagina y cuales no encuentra en img/, con el nombre exacto que busca.
+Las 10 fotos de "Pequenas historias, grandes vinculos" (Comunidad) tienen imagen="" en index.html desde el primer zip: no tienen nombre asignado.
+
+Version 20: nombres de imagen igualados a los archivos reales de la carpeta img (la de la version v17 que si carga todo)
+- Lumo durmiendo (Inicio): ahora busca "PERRO DORMIR.png" (antes "PERRO DORMIDO.JPG", que no existe).
+- "Pequenas historias, grandes vinculos" (Comunidad): sus 10 fotos ya tienen nombre: 21, 22, 23, 27, 25, 26, 24, 30, 28, 29 (.jpg), en ese orden.
+- Juego Cuida a LUMO: "ASUSTADO.png" -> "ASUSTAO.png" (asi se llama el archivo).
+- Extensiones .JPG/.PNG -> .jpg/.png para que coincidan con los archivos (asi tambien funciona si la pagina se sube a un servidor).
+- revisar-imagenes.html actualizado: con la carpeta img completa, todas las imagenes cargan bien.
+
+Version 21: lumo-mejoras-20.css (se carga despues de lumo-mejoras-19.css)
+Juega con LUMO, debajo del material que ya estaba: caja con el subtitulo "Explora mas de nuestro mundo LUMO!" (azul de los titulos,
+caja que se ajusta al texto) y dos contenidos incrustados: 1) https://angelabarrera0407.github.io/LUMO-PRODUCTO-EDITORIAL/
+2) https://indd.adobe.com/view/d69542f7-9149-4b0e-a9a7-a8ce5084fdc5 (bloque <div class="lumo-mundo"> en index.html).
+Ajustes en las variables del inicio del CSS: --mundo-github-alto y --mundo-adobe-proporcion.
+
+Version 22: Juega con LUMO
+- Se elimino el bloque anterior ("Explora el material interactivo de LUMO" con su enlace de Adobe). En su lugar va la caja "¡Explora más de nuestro mundo LUMO!".
+- Debajo: 1) GitHub (producto editorial) a 1280 x 800 px, que se reduce proporcionalmente en pantallas angostas (embed-escala.js; en celular ocupa todo el ancho),
+  y 2) el material de Adobe (indd.adobe.com/view/d69542f7-...), en proporcion 4 / 3 (--mundo-adobe-proporcion en lumo-mejoras-20.css).
+
+Version 23: el recuadro de GitHub ahora tiene el mismo ancho que el de Adobe (max 1000 px); su contenido sigue encuadrado a 1280 x 800 y se reduce proporcionalmente.
+
+Version 24:
+- Subtitulos en verde (--subtitulo-menta, igual al verde de la pagina) sobre cada contenido: "¡Explora nuestro libro digital!" y "¿Qué te parece si descubrimos el camino para cuidar a un animalito?".
+- Visita al veterinario: el boton "Calmar a LUMO" ahora se ve siempre (fondo blanco, texto y borde verdes; con el cursor encima se invierte).

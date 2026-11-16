@@ -1,0 +1,583 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 8)
+   Se carga DESPUÉS de lumo-mejoras-7.css.
+   Pantalla "Juega con LUMO": título con logo, menú de juegos
+   y el juego "Cuida a LUMO" (la lógica está en juego.js).
+   Para quitarlo, borra este <link> y el <script src="juego.js">.
+   ========================================================= */
+
+.juega-section{
+  max-width:1000px;
+  margin:auto;
+  padding:70px 24px 90px;
+}
+
+
+/* ---------- TÍTULO ---------- */
+
+.juega-title{
+  margin-bottom:44px;
+}
+
+
+
+/* ---------- MENÚ DE JUEGOS ---------- */
+
+.juegos-menu{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:32px 24px;
+  flex-wrap:wrap;
+  margin-bottom:48px;
+}
+
+.juego-opcion{
+  display:grid;
+  justify-items:center;
+  gap:12px;
+  width:216px;
+  text-align:center;
+}
+
+.juego-opcion p{
+  font-size:15px;
+  line-height:1.4;
+}
+
+.juego-pill{
+  padding:10px 18px;
+  font-size:16px;
+  font-weight:700;
+}
+
+.juego-pill.on{
+  background:var(--td);
+  box-shadow:0 0 0 3px #fff,0 0 0 5px var(--t);
+}
+
+.juego-pill:disabled{
+  background:var(--b);
+  opacity:.75;
+  cursor:default;
+  transform:none;
+}
+
+.juego-soon{
+  display:inline-block;
+  margin-top:4px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  color:var(--rosa);
+}
+
+
+/* ---------- JUEGO: TARJETA ---------- */
+
+.jg-card{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:34px;
+  align-items:center;
+  max-width:900px;
+  margin:auto;
+  padding:34px;
+  background:var(--l);
+  border-radius:28px;
+}
+
+.jg-card::before,
+.jg-card::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  pointer-events:none;
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+
+.jg-card::before{
+  left:-60px;
+  bottom:-60px;
+  width:200px;
+  height:200px;
+  background-image:var(--b-lpink);
+  opacity:.8;
+}
+
+.jg-card::after{
+  right:-70px;
+  top:-70px;
+  width:220px;
+  height:220px;
+  background-image:var(--b-blue-l);
+  opacity:.7;
+}
+
+
+/* ---------- JUEGO: ESCENARIO ---------- */
+
+.jg-stage{
+  position:relative;
+  display:grid;
+  justify-items:center;
+  gap:14px;
+}
+
+.jg-bubble{
+  position:relative;
+  width:100%;
+  min-height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 18px;
+  background:#fff;
+  color:var(--petroleo);
+  font-weight:700;
+  font-size:14px;
+  line-height:1.35;
+  text-align:center;
+  border-radius:20px;
+}
+
+.jg-bubble::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-9px;
+  width:18px;
+  height:18px;
+  background:#fff;
+  transform:translateX(-50%) rotate(45deg);
+  border-radius:3px;
+}
+
+.jg-lumo{
+  width:100%;
+  max-width:340px;
+  height:290px;
+  margin-top:8px;
+  background-color:#ffffffb3;
+}
+
+.jg-lumo.con-img{
+  background:var(--img) center/contain no-repeat;
+}
+
+.jg-estado{
+  padding:6px 18px;
+  background:var(--petroleo);
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+  border-radius:99px;
+}
+
+.jg-float{
+  position:absolute;
+  bottom:90px;
+  font-size:30px;
+  pointer-events:none;
+  animation:jgFloat 1.6s ease-out forwards;
+}
+
+
+/* ---------- JUEGO: PANEL ---------- */
+
+.jg-panel{
+  display:grid;
+  gap:18px;
+}
+
+.jg-bars{
+  display:grid;
+  gap:12px;
+}
+
+.jg-bar-top{
+  display:flex;
+  justify-content:space-between;
+  font-weight:700;
+  font-size:14px;
+  color:var(--petroleo);
+  margin-bottom:4px;
+}
+
+.jg-track{
+  height:16px;
+  background:#fff;
+  border-radius:99px;
+  overflow:hidden;
+}
+
+.jg-fill{
+  height:100%;
+  width:70%;
+  border-radius:99px;
+  background:var(--c,var(--t));
+  transition:width .5s ease;
+}
+
+.jg-bar[data-stat="comida"]{ --c:var(--rosa); }
+.jg-bar[data-stat="agua"]{ --c:var(--azul); }
+.jg-bar[data-stat="diversion"]{ --c:#3c096c; }
+.jg-bar[data-stat="carino"]{ --c:var(--t); }
+
+.jg-bar.low .jg-fill{
+  animation:jgPulse 1s ease-in-out infinite;
+}
+
+.jg-bar.low .jg-bar-top{
+  color:var(--rosa);
+}
+
+.jg-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.jg-btn{
+  padding:11px 14px;
+  font-size:15px;
+  font-weight:700;
+}
+
+.jg-btn-no{
+  background:#fff;
+  color:var(--rosa);
+  box-shadow:inset 0 0 0 2px var(--rosa);
+}
+
+.jg-btn-no:hover{
+  background:var(--rosa);
+  color:#fff;
+}
+
+.jg-tip{
+  min-height:42px;
+  font-size:14px;
+  line-height:1.4;
+  color:var(--petroleo);
+}
+
+.jg-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.jg-note{
+  flex:1 1 220px;
+  font-size:12px;
+  line-height:1.4;
+  color:var(--petroleo);
+  opacity:.85;
+}
+
+.jg-reset{
+  background:#fff;
+  color:var(--petroleo);
+  padding:6px 16px;
+  font-size:13px;
+  box-shadow:inset 0 0 0 2px var(--petroleo);
+}
+
+.jg-reset:hover{
+  background:var(--petroleo);
+  color:#fff;
+}
+
+
+/* ---------- ANIMACIONES DE LUMO ---------- */
+
+.jg-lumo[data-mood="feliz"],
+.jg-lumo[data-mood="consentido"]{ animation:jgBounce 1.8s ease-in-out infinite; }
+
+.jg-lumo[data-mood="comiendo"],
+.jg-lumo[data-mood="bebiendo"],
+.jg-lumo[data-mood="jugando"]{ animation:jgHop .5s ease-in-out infinite; }
+
+.jg-lumo[data-mood="asustado"]{ animation:jgShake .45s ease-in-out 3; }
+
+.jg-lumo[data-mood="triste"],
+.jg-lumo[data-mood="hambre"],
+.jg-lumo[data-mood="sed"],
+.jg-lumo[data-mood="aburrido"]{ animation:jgDroop 2.4s ease-in-out infinite; }
+
+.jg-lumo[data-mood="durmiendo"]{ animation:jgBreathe 3.4s ease-in-out infinite; }
+
+@keyframes jgBounce{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes jgHop{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes jgShake{ 0%,100%{transform:translateX(0)} 25%{transform:translateX(-9px)} 75%{transform:translateX(9px)} }
+@keyframes jgDroop{ 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(5px) scale(.98)} }
+@keyframes jgBreathe{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.025)} }
+@keyframes jgPulse{ 0%,100%{opacity:1} 50%{opacity:.55} }
+@keyframes jgFloat{ 0%{opacity:0;transform:translateY(0)} 15%{opacity:1} 100%{opacity:0;transform:translateY(-130px)} }
+
+@media(prefers-reduced-motion:reduce){
+  .jg-lumo,
+  .jg-bar.low .jg-fill,
+  .jg-float{ animation:none !important; }
+  .jg-fill{ transition:none; }
+}
+
+
+/* ---------- CELULAR ---------- */
+
+@media(max-width:760px){
+  .juega-section{ padding:50px 16px 70px; }
+  .jg-card{ grid-template-columns:1fr; padding:24px 18px; gap:26px; }
+  .jg-lumo{ height:240px; }
+}
+
+/* Botón Pegar: ocupa toda la fila para que no quede suelto */
+.jg-btn-no{
+  grid-column:1 / -1;
+}
+
+
+/* ---------- TEXTOS Y CAJAS DE MENSAJE (usados por Colorea y Veterinario) ---------- */
+
+.av-texto{
+  font-size:17px;
+  font-weight:700;
+  line-height:1.45;
+  color:var(--petroleo);
+}
+
+.av-opciones{
+  display:grid;
+  gap:10px;
+}
+
+.av-op{
+  padding:12px 18px;
+  background:#fff;
+  color:var(--petroleo);
+  font-size:15px;
+  text-align:left;
+  border-radius:20px;
+  box-shadow:inset 0 0 0 2px var(--t);
+}
+
+.av-op:hover:not(:disabled){
+  background:var(--t);
+  color:#fff;
+}
+
+.av-op:disabled{
+  opacity:.5;
+  cursor:default;
+  transform:none;
+}
+
+.av-op.probada{
+  box-shadow:inset 0 0 0 2px var(--rosa);
+  text-decoration:line-through;
+}
+
+.av-feedback{
+  display:grid;
+  gap:12px;
+  justify-items:start;
+  padding:16px 18px;
+  background:#fff;
+  border-radius:20px;
+  font-size:15px;
+  line-height:1.45;
+  color:var(--petroleo);
+  border-left:8px solid var(--t);
+}
+
+.av-feedback.no{ border-left-color:var(--rosa); }
+
+.av-medalla{
+  font-weight:700;
+  font-size:17px;
+}
+
+
+/* ---------- COLOREA A LUMO ---------- */
+
+.co-card{ grid-template-columns:1.6fr 1fr; align-items:start; }
+
+.co-lienzo{
+  position:relative;
+  isolation:isolate;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  line-height:0;
+}
+
+.co-lienzo canvas{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+#coLineas{
+  position:absolute;
+  inset:0;
+  mix-blend-mode:multiply;
+  touch-action:none;
+  cursor:crosshair;
+}
+
+.co-lienzo.ph{ min-height:300px; }
+
+.co-paleta{
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:8px;
+}
+
+.co-color{
+  width:100%;
+  aspect-ratio:1;
+  padding:0;
+  border-radius:50%;
+  box-shadow:inset 0 0 0 2px #0000002e;
+}
+
+.co-color.on{
+  box-shadow:0 0 0 3px #fff,0 0 0 6px var(--petroleo);
+}
+
+.co-herramientas{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+}
+
+.co-tool{ padding:10px 6px; font-size:14px; }
+
+.co-tool.on{
+  background:var(--td);
+  box-shadow:0 0 0 3px #fff,0 0 0 5px var(--t);
+}
+
+.co-tam{
+  display:grid;
+  gap:4px;
+  font-size:14px;
+  color:var(--petroleo);
+}
+
+.co-tam input{
+  padding:0;
+  background:none;
+  accent-color:var(--t);
+}
+
+.co-acciones{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+@media(max-width:760px){
+  .co-card{ grid-template-columns:1fr; }
+}
+
+
+/* ---------- VISITA AL VETERINARIO ---------- */
+
+.ve-bandeja{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.ve-instr{
+  position:relative;
+  display:grid;
+  justify-items:center;
+  gap:4px;
+  padding:10px 6px 8px;
+  background:#fff;
+  color:var(--petroleo);
+  font-size:13px;
+  font-weight:700;
+  border-radius:18px;
+  box-shadow:inset 0 0 0 2px #d6ebeb;
+  touch-action:none;
+  cursor:grab;
+}
+
+.ve-instr:hover:not(:disabled){
+  background:var(--l);
+  box-shadow:inset 0 0 0 2px var(--t);
+}
+
+.ve-instr .ph{
+  border:0;
+  border-radius:12px;
+  pointer-events:none;
+}
+
+.ve-instr .ph.con-img,
+.ve-vuelo.con-img,
+.ve-ghost.con-img{
+  background:var(--img) center/contain no-repeat;
+}
+
+.ve-instr.hecho{
+  opacity:.55;
+  cursor:default;
+  box-shadow:inset 0 0 0 2px var(--t);
+}
+
+.ve-instr.hecho::after{
+  content:"✓";
+  position:absolute;
+  top:6px;
+  right:10px;
+  color:var(--t);
+  font-size:18px;
+}
+
+.ve-instr.sacude{ animation:jgShake .45s ease-in-out; }
+
+.ve-vuelo,
+.ve-ghost{
+  border:0;
+  border-radius:12px;
+  pointer-events:none;
+  z-index:20;
+}
+
+.ve-vuelo{
+  position:absolute;
+  transition:transform .65s ease;
+}
+
+.ve-vuelo.ve-uso{ animation:jgHop .35s ease-in-out 3; }
+
+.ve-ghost{
+  position:fixed;
+  width:84px;
+  height:84px;
+  opacity:.9;
+}
+
+.ve-calmar{
+  background:#fff;
+  color:var(--t);
+  box-shadow:inset 0 0 0 2px var(--t);
+}
+
+.ve-calmar:hover{
+  background:var(--t);
+  color:#fff;
+}
+
+.jg-lumo[data-mood="nervioso"]{ animation:jgShake .45s ease-in-out infinite alternate; }

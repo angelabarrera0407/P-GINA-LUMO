@@ -1,0 +1,593 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 2)
+   Se carga DESPUÉS de Styles.css y comunidad.css.
+   No cambia la estructura, el HTML ni los colores originales.
+   Agrega: líneas y círculos de fondo, franja petróleo del menú,
+   fondo verde agua marina muy claro y botones en forma de nube.
+   Para volver al diseño original, quita el <link> de este archivo.
+   ========================================================= */
+
+:root{
+  --petroleo:#12505d;
+  --petroleo-osc:#0d3d47;
+  --rosa:#e16887;
+  --azul:#7298c7;
+
+  /* Decoraciones (líneas suaves y círculos) */
+  --sq-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%237298c7' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 340 C20 180 120 40 250 70 C380 100 340 280 230 260 C120 240 170 110 280 130 C340 140 370 190 350 250'/%3E%3C/svg%3E");
+  --sq-pink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23e16887' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 90 C120 -10 230 20 210 110 C190 200 70 190 90 290 C110 380 280 370 370 300'/%3E%3C/svg%3E");
+  --sq-teal:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%2312505d' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 340 C20 180 120 40 250 70 C380 100 340 280 230 260 C120 240 170 110 280 130 C340 140 370 190 350 250'/%3E%3C/svg%3E");
+  --sq-blue2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%237298c7' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 90 C120 -10 230 20 210 110 C190 200 70 190 90 290 C110 380 280 370 370 300'/%3E%3C/svg%3E");
+  --b-pink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23e16887' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-lpink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f5a6b8' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%2312505d' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%237298c7' d='M20 60 C40 10 120 -5 165 35 C210 75 195 140 150 175 C105 210 40 190 15 140 C5 115 8 85 20 60Z'/%3E%3C/svg%3E");
+  --b-blue-l:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23a9c1e0' d='M20 60 C40 10 120 -5 165 35 C210 75 195 140 150 175 C105 210 40 190 15 140 C5 115 8 85 20 60Z'/%3E%3C/svg%3E");
+}
+
+/* Fondo verde agua marina muy claro */
+body{
+  background:#eefaf6;
+}
+
+/* Las pantallas recortan lo que sobresale a los lados */
+.lumo-view{
+  position:relative;
+  overflow-x:clip;
+}
+
+
+/* =========================================================
+   MENÚ: franja petróleo
+   ========================================================= */
+
+nav{
+  gap:14px 8px;
+  padding:16px 16px 10px;
+  border-bottom:5px solid;
+  border-image:linear-gradient(90deg,var(--petroleo-osc),var(--petroleo),#3d848c,var(--petroleo),var(--petroleo-osc)) 1;
+}
+
+footer{
+  border-top:5px solid;
+  border-image:linear-gradient(90deg,var(--petroleo-osc),var(--petroleo),#3d848c,var(--petroleo),var(--petroleo-osc)) 1;
+}
+
+
+/* =========================================================
+   BOTONES EN FORMA DE NUBE
+   (mismos colores y tamaños; solo cambia la silueta)
+   ========================================================= */
+
+nav > button,
+.lumo-buttons button,
+.pill,
+form button,
+dialog button,
+.community-main-link{
+  position:relative;
+  isolation:isolate;
+  border-radius:99px;
+}
+
+nav > button::before,
+.lumo-buttons button::before,
+.pill::before,
+form button::before,
+dialog button::before,
+.community-main-link::before,
+nav > button::after,
+.lumo-buttons button::after,
+.pill::after,
+form button::after,
+dialog button::after,
+.community-main-link::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  background:inherit;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+/* bulto pequeño */
+nav > button::before,
+.lumo-buttons button::before,
+.pill::before,
+form button::before,
+dialog button::before,
+.community-main-link::before{
+  left:13%;
+  top:-26%;
+  width:30%;
+  height:80%;
+}
+
+/* bulto grande */
+nav > button::after,
+.lumo-buttons button::after,
+.pill::after,
+form button::after,
+dialog button::after,
+.community-main-link::after{
+  right:15%;
+  top:-38%;
+  width:38%;
+  height:100%;
+}
+
+/* El contorno del botón activo sigue la forma de la nube */
+nav button.on,
+.pill.on{
+  box-shadow:none;
+  filter:
+    drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
+    drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
+    drop-shadow(2px 0 0 var(--t)) drop-shadow(-2px 0 0 var(--t))
+    drop-shadow(0 2px 0 var(--t)) drop-shadow(0 -2px 0 var(--t));
+}
+
+.lumo-buttons{
+  gap:18px 9px;
+  padding-top:10px;
+}
+
+.community-main-link{
+  margin-top:8px;
+}
+
+
+/* =========================================================
+   LÍNEAS Y CÍRCULOS DE FONDO
+   ========================================================= */
+
+.about-lumo,
+.important-section,
+.needs-section{
+  position:relative;
+}
+
+.about-lumo > *,
+.important-section > *,
+.needs-section > *{
+  position:relative;
+  z-index:1;
+}
+
+/* ¿Qué es LUMO? */
+
+.about-lumo::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-150px;
+  top:10px;
+  width:420px;
+  height:420px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.2;
+  pointer-events:none;
+}
+
+.about-lumo::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-80px;
+  bottom:0;
+  width:200px;
+  height:170px;
+  background:var(--b-lpink) center/contain no-repeat;
+  pointer-events:none;
+}
+
+/* Conoce a LUMO */
+
+.meet-lumo{
+  position:relative;
+}
+
+.meet-lumo > *{
+  position:relative;
+  z-index:1;
+}
+
+.meet-lumo::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-60px;
+  top:-50px;
+  width:230px;
+  height:210px;
+  background:var(--b-blue) center/contain no-repeat;
+  pointer-events:none;
+}
+
+.meet-lumo::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:8%;
+  bottom:-70px;
+  width:320px;
+  height:320px;
+  background:var(--sq-teal) center/contain no-repeat;
+  opacity:.14;
+  pointer-events:none;
+}
+
+/* ¿Por qué es importante? */
+
+.important-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-160px;
+  top:90px;
+  width:400px;
+  height:400px;
+  background:var(--sq-pink) center/contain no-repeat;
+  opacity:.2;
+  pointer-events:none;
+}
+
+.important-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-100px;
+  bottom:90px;
+  width:210px;
+  height:190px;
+  background:var(--b-dark) center/contain no-repeat;
+  opacity:.9;
+  pointer-events:none;
+}
+
+/* ¿Qué necesita un animal? */
+
+.needs-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-140px;
+  top:40px;
+  width:400px;
+  height:400px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.2;
+  pointer-events:none;
+}
+
+.needs-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-100px;
+  bottom:60px;
+  width:220px;
+  height:200px;
+  background:var(--b-blue-l) center/contain no-repeat;
+  pointer-events:none;
+}
+
+/* Contáctanos */
+
+.contact{
+  position:relative;
+  overflow:hidden;
+}
+
+.contact > *{
+  position:relative;
+  z-index:1;
+}
+
+.contact::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-70px;
+  top:40px;
+  width:240px;
+  height:220px;
+  background:var(--b-blue) center/contain no-repeat;
+  opacity:.85;
+  pointer-events:none;
+}
+
+.contact::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-80px;
+  bottom:-50px;
+  width:250px;
+  height:230px;
+  background:var(--b-pink) center/contain no-repeat;
+  pointer-events:none;
+}
+
+/* Comunidad: portada */
+
+.community-hero{
+  position:relative;
+}
+
+.community-hero > *,
+.community-support > *,
+.community-social > *{
+  position:relative;
+  z-index:1;
+}
+
+.community-hero::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-60px;
+  top:-70px;
+  width:240px;
+  height:220px;
+  background:var(--b-dark) center/contain no-repeat;
+  pointer-events:none;
+}
+
+.community-hero::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-70px;
+  bottom:-90px;
+  width:320px;
+  height:320px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.25;
+  pointer-events:none;
+}
+
+/* Comunidad: accesos rápidos */
+
+#comunidad-accesos{
+  position:relative;
+}
+
+#comunidad-accesos > *{
+  position:relative;
+  z-index:1;
+}
+
+#comunidad-accesos::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-130px;
+  top:20px;
+  width:340px;
+  height:340px;
+  background:var(--sq-pink) center/contain no-repeat;
+  opacity:.2;
+  pointer-events:none;
+}
+
+#comunidad-accesos::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-90px;
+  bottom:20px;
+  width:200px;
+  height:180px;
+  background:var(--b-blue-l) center/contain no-repeat;
+  pointer-events:none;
+}
+
+/* Comunidad: acompañamiento */
+
+.community-support{
+  position:relative;
+  overflow:hidden;
+}
+
+.community-support::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-80px;
+  top:-80px;
+  width:340px;
+  height:340px;
+  background:var(--sq-pink) center/contain no-repeat;
+  opacity:.22;
+  pointer-events:none;
+}
+
+.community-support::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-70px;
+  bottom:-70px;
+  width:190px;
+  height:170px;
+  background:var(--b-blue) center/contain no-repeat;
+  opacity:.85;
+  pointer-events:none;
+}
+
+/* Comunidad: fundaciones */
+
+#ayudar{
+  position:relative;
+}
+
+#ayudar > *{
+  position:relative;
+  z-index:1;
+}
+
+#ayudar::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-150px;
+  top:60px;
+  width:380px;
+  height:380px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.2;
+  pointer-events:none;
+}
+
+#ayudar::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-100px;
+  bottom:40px;
+  width:190px;
+  height:170px;
+  background:var(--b-pink) center/contain no-repeat;
+  opacity:.9;
+  pointer-events:none;
+}
+
+/* Comunidad: historias */
+
+.stories-section{
+  position:relative;
+  overflow:hidden;
+}
+
+.stories-section > *{
+  position:relative;
+  z-index:1;
+}
+
+.stories-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-100px;
+  top:-40px;
+  width:360px;
+  height:360px;
+  background:var(--sq-teal) center/contain no-repeat;
+  opacity:.12;
+  pointer-events:none;
+}
+
+.stories-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-80px;
+  bottom:-60px;
+  width:210px;
+  height:190px;
+  background:var(--b-blue-l) center/contain no-repeat;
+  pointer-events:none;
+}
+
+/* Comunidad: redes */
+
+.community-social{
+  position:relative;
+  overflow:hidden;
+}
+
+.community-social::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-60px;
+  top:-50px;
+  width:320px;
+  height:320px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.25;
+  pointer-events:none;
+}
+
+.community-social::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-50px;
+  bottom:-60px;
+  width:180px;
+  height:165px;
+  background:var(--b-pink) center/contain no-repeat;
+  opacity:.9;
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media(max-width:700px){
+
+  /* Decoraciones más pequeñas para no estorbar */
+
+  .about-lumo::before,
+  .needs-section::before,
+  .important-section::before,
+  #comunidad-accesos::before,
+  #ayudar::before,
+  .stories-section::before,
+  .community-support::before,
+  .community-social::before,
+  .meet-lumo::after,
+  .community-hero::after{
+    width:220px;
+    height:220px;
+  }
+
+  .about-lumo::after,
+  .important-section::after,
+  .needs-section::after,
+  #comunidad-accesos::after,
+  #ayudar::after,
+  .stories-section::after,
+  .community-support::after,
+  .community-social::after,
+  .contact::before,
+  .contact::after,
+  .meet-lumo::before,
+  .community-hero::before{
+    width:110px;
+    height:100px;
+  }
+
+  /* Evita que imágenes de ancho fijo desborden la pantalla */
+
+  .about-content > *,
+  .meet-lumo > *,
+  .card > *,
+  .need > *{
+    min-width:0;
+  }
+
+  .about-image,
+  .meet-image .ph{
+    width:100% !important;
+    left:0 !important;
+  }
+
+  .need .ph{
+    width:100% !important;
+    max-width:320px;
+    margin:0 auto;
+    height:auto !important;
+    aspect-ratio:1/1;
+  }
+
+  .need div:not(.ph){
+    flex-wrap:wrap;
+    justify-content:center;
+    padding-top:10px;
+  }
+}

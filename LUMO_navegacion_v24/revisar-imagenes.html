@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>Revisar imágenes de LUMO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font:15px/1.45 system-ui,sans-serif;margin:0;padding:24px;background:#edf7fc;color:#12505d}
+h1{font-size:24px;margin:0 0 6px} h2{font-size:18px;margin:28px 0 8px}
+p{margin:0 0 8px;max-width:760px}
+table{border-collapse:collapse;width:100%;max-width:980px;background:#fff;border-radius:12px;overflow:hidden}
+td,th{padding:8px 12px;text-align:left;border-bottom:1px solid #d6ebeb;vertical-align:middle}
+th{background:#007f7b;color:#fff}
+.ok{color:#007f7b;font-weight:700} .no{color:#c0334f;font-weight:700} .vacio{color:#9a6b00;font-weight:700}
+img{max-height:44px;border-radius:6px;vertical-align:middle}
+code{background:#e6f5f5;padding:1px 6px;border-radius:6px}
+#resumen{font-weight:700;margin:12px 0}
+</style></head><body>
+<h1>Revisar imágenes de LUMO</h1>
+<p>Guarda este archivo en la <b>misma carpeta que <code>index.html</code></b> (la que tiene la carpeta <code>img</code>) y ábrelo con doble clic o con Live Server. Muestra qué imágenes carga la página y cuáles no encuentra. Se escriben igual que en <code>index.html</code>: mayúsculas, espacios, guiones y la extensión (.png, .JPG) tienen que coincidir.</p>
+<div id="resumen">Revisando…</div>
+<h2>Imágenes de las páginas (index.html)</h2>
+<table id="t1"><tr><th>Nombre que busca la página</th><th>Dónde va</th><th>Estado</th><th>Vista</th></tr></table>
+<h2>Imágenes de los juegos (juego.js y veterinario.js)</h2>
+<table id="t2"><tr><th>Nombre que busca el juego</th><th>Juego</th><th>Estado</th><th>Vista</th></tr></table>
+<h2>Fotos sin nombre asignado</h2>
+<p>Estas fotos tienen el nombre vacío en <code>index.html</code> (<code>imagen=""</code>), por eso nunca cargan. Hay que asignarles el nombre de su archivo.</p>
+<table id="t3"><tr><th>Dónde va</th><th>Estado</th></tr></table>
+<script>
+const HTML = [["Logotipo.png", "Logo LUMO"], ["CASA.png", "Ilustración LUMO"], ["Logo grande.png", "LUMO"], ["perritocarainicio.png", "Ilustración de LUMO"], ["lummmoo (2).png", "LUMO"], ["patitaizqinicio.png", "Huella"], ["patitaderinicio.png", "Huella"], ["PERRO DORMIR.png", "Lumo durmiendo · 500×400"], ["NIÑA Y PERRITO PAPA.jpg", "Ilustración principal de Comunidad LUMO"], ["ABANDONO.jpg", "Ilustración de acompañamiento emocional"], ["2.jpg", "Imagen de adopción responsable"], ["4.jpg", "Imagen de voluntariado animal"], ["RESCATAME.jpg", "Imagen de perros y gatos rescatados por Fundación Rescátame"], ["5.jpg", "Imagen de animales acogidos por ADA Colombia"], ["7.jpg", "Imagen de brigada de rescate animal de Dogpack Fundación Animalista"], ["6.jpg", "Imagen de perros y gatos del Refugio Milagrinos"], ["8.jpg", "Imagen de una historia de adopción de un perro mestizo"], ["9.jpg", "Imagen de una campaña de protección animal"], ["21.jpg", "Foto real de un reencuentro entre una mascota y su familia"], ["22.jpg", "Foto real de una adopción responsable"], ["23.jpg", "Foto real de personas voluntarias ayudando animales"], ["27.jpg", "Foto real de una familia cuidando a su mascota en casa"], ["25.jpg", "Foto real de una persona jugando con su mascota"], ["26.jpg", "Foto real de una mascota tomando agua y comiendo"], ["24.jpg", "Foto real de una mascota en una revisión veterinaria"], ["30.jpg", "Foto real de una familia paseando de forma segura con su perro"], ["28.jpg", "Foto real de una familia abrazando a su mascota"], ["29.jpg", "Espacio para una foto compartida por la comunidad LUMO"], ["PARQUE CON NIÑA Y PERRO.jpg", "Ilustración de la comunidad LUMO"], ["14.png", "Estetoscopio"], ["15.png", "Termómetro"], ["11.png", "Báscula"], ["12.png", "Otoscopio"], ["16.png", "Linterna"], ["13.png", "Vacuna"]];
+const JUEGOS = [["ABURRIDO.png", "Juego Cuida a LUMO"], ["ASUSTAO.png", "Juego Cuida a LUMO"], ["BEBER.png", "Juego Cuida a LUMO"], ["COMIENDO.png", "Juego Cuida a LUMO"], ["CONSENTIDO.png", "Juego Cuida a LUMO"], ["DORMIR.png", "Juego Cuida a LUMO"], ["FELIZ.png", "Juego Cuida a LUMO"], ["HAMBRE.png", "Juego Cuida a LUMO"], ["JUGAR.png", "Juego Cuida a LUMO"], ["SED.png", "Juego Cuida a LUMO"], ["TRISTE.png", "Juego Cuida a LUMO"], ["CALMADO.png", "Juego Visita al veterinario"], ["FELIZ.jpg", "Juego Visita al veterinario"], ["NERVIOSO2.png", "Juego Visita al veterinario"], ["PERRO VET.png", "Juego Visita al veterinario"], ["TRISTE.jpg", "Juego Visita al veterinario"]];
+const VACIOS = [];
+let faltan = 0, total = 0, pendientes = 0;
+function fila(tabla, nombre, donde){
+  total++; pendientes++;
+  const tr = document.createElement('tr');
+  tr.innerHTML = '<td></td><td></td><td class="vacio">Revisando…</td><td></td>';
+  tr.children[0].textContent = nombre; tr.children[1].textContent = donde;
+  document.getElementById(tabla).appendChild(tr);
+  const im = new Image();
+  im.onload = () => { tr.children[2].className='ok'; tr.children[2].textContent='✅ Carga bien'; tr.children[3].appendChild(im); fin(); };
+  im.onerror = () => { faltan++; tr.children[2].className='no'; tr.children[2].textContent='❌ No se encuentra en img/'; fin(); };
+  im.src = 'img/' + encodeURI(nombre).replace(/%25/g,'%');
+}
+function fin(){
+  if(--pendientes) return;
+  document.getElementById('resumen').textContent = faltan
+    ? faltan + ' de ' + total + ' imágenes no se encuentran. Revisa que el archivo exista en img/ con ese nombre exacto.'
+    : '¡Todas las imágenes cargan bien! (' + total + ')';
+}
+HTML.forEach(([n,d]) => fila('t1', n, d));
+JUEGOS.forEach(([n,j]) => fila('t2', n, j));
+VACIOS.forEach(d => { const tr=document.createElement('tr'); tr.innerHTML='<td></td><td class="vacio">⚠️ Sin nombre asignado</td>'; tr.children[0].textContent=d; document.getElementById('t3').appendChild(tr); });
+</script></body></html>

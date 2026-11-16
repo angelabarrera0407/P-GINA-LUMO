@@ -1,0 +1,71 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 5)
+   Se carga DESPUÉS de lumo-mejoras-4.css.
+   Cambios de esta ronda:
+   - Fondo y colores de las secciones, como en el diseño original
+   - Frase del inicio en un rectángulo redondeado verde petróleo
+   - Contáctanos con su color y su forma redondeada originales
+   Se conservan: líneas y círculos de fondo, franja petróleo del menú
+   y nubes en "Conoce a LUMO" y "¿Qué necesita un animal?".
+   Para deshacerlos, quita el <link> de este archivo.
+   ========================================================= */
+
+/* Fondo original */
+body{
+  background:#fff;
+}
+
+
+/* =========================================================
+   INICIO: FRASE EN RECTÁNGULO REDONDEADO
+   ========================================================= */
+
+.hero .intro{
+  background:var(--petroleo);
+  color:#fff;
+  border-radius:28px;
+  padding:22px 44px;
+  margin:16px auto 6px;
+  max-width:850px;
+}
+
+.hero .intro::before{
+  content:none;
+}
+
+@media(max-width:700px){
+  .hero .intro{
+    padding:18px 22px;
+    margin:14px 18px 6px;
+    border-radius:22px;
+  }
+}
+
+
+/* =========================================================
+   ¿POR QUÉ ES IMPORTANTE? · colores originales
+   ========================================================= */
+
+.important-card{
+  background:#d9f3f3;
+  border:0;
+  box-shadow:none;
+}
+
+.important-card h3{
+  color:var(--t);
+}
+
+.important-card p{
+  color:#333;
+}
+
+
+/* =========================================================
+   CONTÁCTANOS · color y forma originales
+   ========================================================= */
+
+.contact{
+  background:var(--m);
+  border-radius:70% 70% 0 0 / 50px 50px 0 0;
+}

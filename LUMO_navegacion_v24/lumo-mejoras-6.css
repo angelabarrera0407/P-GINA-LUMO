@@ -1,0 +1,117 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 6)
+   Se carga DESPUÉS de lumo-mejoras-5.css.
+   Cambios de esta ronda:
+   - Tarjetas de "¿Por qué es importante?" con el estilo de la versión 3
+   - Contáctanos sin círculos ni líneas
+   - Footer del mismo color que el fondo de Contáctanos
+   - Círculos solo en rosado y azul claro (sin azul oscuro)
+   - Siluetas de huesitos y patitas moradas en baja opacidad
+   Para deshacerlos, quita el <link> de este archivo.
+   ========================================================= */
+
+:root{
+  --siluetas:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='820' height='700' viewBox='0 0 820 700'%3E%3Cg transform='translate(110 110) rotate(-35) scale(0.75)' fill='%233c096c'%3E%3Crect x='-55' y='-18' width='110' height='36' rx='10'/%3E%3Ccircle cx='-58' cy='-22' r='24'/%3E%3Ccircle cx='-58' cy='22' r='24'/%3E%3Ccircle cx='58' cy='-22' r='24'/%3E%3Ccircle cx='58' cy='22' r='24'/%3E%3C/g%3E%3Cg transform='translate(620 130) rotate(18) scale(0.8)' fill='%233c096c'%3E%3Cellipse cx='0' cy='14' rx='30' ry='25'/%3E%3Cellipse cx='-33' cy='-18' rx='11' ry='15' transform='rotate(-20 -33 -18)'/%3E%3Cellipse cx='-11' cy='-34' rx='11' ry='16'/%3E%3Cellipse cx='11' cy='-34' rx='11' ry='16'/%3E%3Cellipse cx='33' cy='-18' rx='11' ry='15' transform='rotate(20 33 -18)'/%3E%3C/g%3E%3Cg transform='translate(720 430) rotate(28) scale(0.65)' fill='%233c096c'%3E%3Crect x='-55' y='-18' width='110' height='36' rx='10'/%3E%3Ccircle cx='-58' cy='-22' r='24'/%3E%3Ccircle cx='-58' cy='22' r='24'/%3E%3Ccircle cx='58' cy='-22' r='24'/%3E%3Ccircle cx='58' cy='22' r='24'/%3E%3C/g%3E%3Cg transform='translate(230 440) rotate(-15) scale(0.7)' fill='%233c096c'%3E%3Cellipse cx='0' cy='14' rx='30' ry='25'/%3E%3Cellipse cx='-33' cy='-18' rx='11' ry='15' transform='rotate(-20 -33 -18)'/%3E%3Cellipse cx='-11' cy='-34' rx='11' ry='16'/%3E%3Cellipse cx='11' cy='-34' rx='11' ry='16'/%3E%3Cellipse cx='33' cy='-18' rx='11' ry='15' transform='rotate(20 33 -18)'/%3E%3C/g%3E%3Cg transform='translate(470 600) rotate(-8) scale(0.55)' fill='%233c096c'%3E%3Crect x='-55' y='-18' width='110' height='36' rx='10'/%3E%3Ccircle cx='-58' cy='-22' r='24'/%3E%3Ccircle cx='-58' cy='22' r='24'/%3E%3Ccircle cx='58' cy='-22' r='24'/%3E%3Ccircle cx='58' cy='22' r='24'/%3E%3C/g%3E%3Cg transform='translate(420 250) rotate(35) scale(0.5)' fill='%233c096c'%3E%3Cellipse cx='0' cy='14' rx='30' ry='25'/%3E%3Cellipse cx='-33' cy='-18' rx='11' ry='15' transform='rotate(-20 -33 -18)'/%3E%3Cellipse cx='-11' cy='-34' rx='11' ry='16'/%3E%3Cellipse cx='11' cy='-34' rx='11' ry='16'/%3E%3Cellipse cx='33' cy='-18' rx='11' ry='15' transform='rotate(20 33 -18)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   ¿POR QUÉ ES IMPORTANTE? · tarjetas (estilo versión 3)
+   ========================================================= */
+
+.important-card{
+  background:#b4e2df;
+  border:2px solid #8fd0cc;
+  box-shadow:0 8px 20px #00665f1f;
+}
+
+.important-card h3{
+  color:var(--td);
+}
+
+.important-card p{
+  color:#1f3b3a;
+}
+
+
+/* =========================================================
+   CONTÁCTANOS: sin decoraciones
+   ========================================================= */
+
+.contact::before,
+.contact::after{
+  content:none;
+}
+
+
+/* =========================================================
+   FOOTER: mismo color que el fondo de Contáctanos
+   ========================================================= */
+
+footer{
+  background:var(--m);
+  color:var(--petroleo);
+  border-top:0;
+  border-image:none;
+}
+
+footer h4{
+  border-bottom-color:#12505d66;
+}
+
+footer .lk{
+  color:var(--petroleo);
+}
+
+footer .lk:hover{
+  color:var(--petroleo);
+}
+
+footer .ft .out{
+  border-color:var(--petroleo);
+}
+
+
+/* =========================================================
+   CÍRCULOS: solo rosado y azul claro
+   ========================================================= */
+
+.important-section::after{
+  background:var(--b-blue) center/contain no-repeat;
+  opacity:.9;
+}
+
+.community-hero::before{
+  background:var(--b-pink) center/contain no-repeat;
+}
+
+.community-support::after{
+  background:var(--b-blue) center/contain no-repeat;
+  opacity:.85;
+}
+
+
+/* =========================================================
+   SILUETAS: huesitos y patitas moradas en baja opacidad
+   (van detrás de las secciones sin fondo propio)
+   ========================================================= */
+
+.lumo-view{
+  isolation:isolate;
+}
+
+.lumo-view::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  background:var(--siluetas) 0 0/820px 700px repeat;
+  opacity:.13;
+  pointer-events:none;
+}
+
+@media(max-width:700px){
+  .lumo-view::before{
+    background-size:560px 478px;
+  }
+}

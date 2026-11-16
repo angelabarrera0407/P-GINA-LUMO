@@ -1,0 +1,115 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 4)
+   Se carga DESPUÉS de lumo-mejoras-3.css.
+   Cambios de esta ronda:
+   - Nubes solo en "Conoce a LUMO" (Empático, Curioso, Protector)
+     y en "¿Sabes qué necesita un animal?"; los demás botones
+     vuelven a ser rectangulares redondeados
+   - Paleta exacta: fondo #c9fbff; líneas y círculos en
+     #e16887, #7198c8, #f5a6b8, #3c096c y #12505d
+   - Franja de Contáctanos en #006d77
+   Para deshacerlos, quita el <link> de este archivo.
+   ========================================================= */
+
+:root{
+  /* Decoraciones con la paleta exacta */
+  --sq-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%237198c8' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 340 C20 180 120 40 250 70 C380 100 340 280 230 260 C120 240 170 110 280 130 C340 140 370 190 350 250'/%3E%3C/svg%3E");
+  --sq-pink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23e16887' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 90 C120 -10 230 20 210 110 C190 200 70 190 90 290 C110 380 280 370 370 300'/%3E%3C/svg%3E");
+  --sq-teal:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%233c096c' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 340 C20 180 120 40 250 70 C380 100 340 280 230 260 C120 240 170 110 280 130 C340 140 370 190 350 250'/%3E%3C/svg%3E");
+  --sq-blue2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%237198c8' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 90 C120 -10 230 20 210 110 C190 200 70 190 90 290 C110 380 280 370 370 300'/%3E%3C/svg%3E");
+  --b-pink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f8c8d3' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-lpink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f8c8d3' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f8c8d3' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f8c8d3' d='M20 60 C40 10 120 -5 165 35 C210 75 195 140 150 175 C105 210 40 190 15 140 C5 115 8 85 20 60Z'/%3E%3C/svg%3E");
+  --b-blue-l:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f8c8d3' d='M20 60 C40 10 120 -5 165 35 C210 75 195 140 150 175 C105 210 40 190 15 140 C5 115 8 85 20 60Z'/%3E%3C/svg%3E");
+  --b-purple:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f8c8d3' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+}
+
+body{
+  background:#c9fbff;
+}
+
+
+/* =========================================================
+   BOTONES RECTANGULARES REDONDEADOS (como el original)
+   ========================================================= */
+
+nav > button,
+form button,
+dialog button,
+.community-main-link{
+  background:var(--t) !important;
+  padding:8px 20px;
+  box-shadow:none;
+  filter:none;
+  isolation:auto;
+}
+
+nav > button:hover,
+form button:hover,
+dialog button:hover{
+  background:var(--b) !important;
+}
+
+.community-main-link:hover{
+  background:var(--td) !important;
+}
+
+nav > button.on,
+nav > button.on:hover{
+  background:var(--td) !important;
+  box-shadow:0 0 0 3px #fff,0 0 0 5px var(--t);
+  filter:none;
+}
+
+nav > button::before,
+nav > button::after,
+form button::before,
+form button::after,
+dialog button::before,
+dialog button::after,
+.community-main-link::before,
+.community-main-link::after{
+  content:none !important;
+}
+
+nav{
+  gap:8px;
+  padding:10px 16px;
+}
+
+form button{
+  margin-top:12px;
+  margin-left:0;
+}
+
+.community-main-link{
+  margin-top:0;
+  padding:11px 20px;
+}
+
+@media(max-width:700px){
+  nav{
+    gap:6px;
+    padding:10px;
+  }
+}
+
+
+/* =========================================================
+   CONTÁCTANOS
+   ========================================================= */
+
+.contact{
+  background:#006d77;
+}
+
+.contact::before{
+  background:var(--b-purple) center/contain no-repeat;
+  opacity:.9;
+}
+
+.community-support::after{
+  background:var(--b-purple) center/contain no-repeat;
+  opacity:.85;
+}

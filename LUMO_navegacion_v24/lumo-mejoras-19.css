@@ -1,0 +1,97 @@
+/* =========================================================
+   LUMO · MEJORAS 19 (se carga después de lumo-mejoras-18.css)
+   1) Menú: caja de fondo #edf7fc (igual que el fondo de la portada de Inicio) y botones en reposo #7298c7.
+      Los demás estados (hover y botón activo) quedan como estaban.
+   2) Círculos decorativos: muy pocos y pequeños, en #f5a6b8 con baja opacidad, fuera de las huellitas y huesitos.
+   No toca imágenes ni sus rutas.
+   ========================================================= */
+
+:root{
+  --menu-caja:#edf7fc;            /* fondo de la caja del menú */
+  --menu-fondo:#7298c7;           /* botones en reposo */
+  --circulos-color:#f5a6b8;       /* color de los círculos */
+  --circulos-opacidad:.4;         /* más bajo = más suave */
+}
+
+/* 1) Menú */
+nav{
+  background:var(--menu-caja);
+}
+
+/* Portada de Inicio: mismo color de fondo que la caja del menú */
+.hero,
+.hero .scene.con-img{
+  background-color:var(--menu-caja);
+}
+
+.hero .scene:not(.con-img){
+  background:var(--menu-caja);
+}
+
+
+/* 2) Círculos de fondo (van detrás de todo el contenido) */
+.lumo-view::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  opacity:var(--circulos-opacidad);
+  pointer-events:none;
+  background-repeat:no-repeat;
+}
+
+/* Círculos pequeños, colocados lejos de las huellitas y los huesitos.
+   Si cambias el diseño del fondo, hay que volver a acomodarlos. */
+.lumo-view[data-view="inicio"]::after{
+  background-image:
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%);
+  background-size:100px 100px, 100px 100px, 100px 100px;
+  background-position:10px 600px, 1080px 1700px, 10px 2450px;
+}
+
+.lumo-view[data-view="juega"]::after{
+  background-image:
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%);
+  background-size:100px 100px, 100px 100px;
+  background-position:190px 700px, 1080px 1550px;
+}
+
+.lumo-view[data-view="comunidad"]::after{
+  background-image:
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+    radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%);
+  background-size:100px 100px, 100px 100px, 100px 100px;
+  background-position:1110px 450px, 10px 2250px, 1080px 3250px;
+}
+
+@media(max-width:700px){
+  .lumo-view[data-view="inicio"]::after{
+    background-image:
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%);
+    background-size:64px 64px, 64px 64px, 64px 64px;
+    background-position:4px 608px, 290px 1700px, 4px 2450px;
+  }
+
+  .lumo-view[data-view="juega"]::after{
+    background-image:
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%);
+    background-size:64px 64px, 64px 64px;
+    background-position:4px 700px, 290px 1550px;
+  }
+
+  .lumo-view[data-view="comunidad"]::after{
+    background-image:
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%),
+      radial-gradient(circle closest-side,var(--circulos-color) 98%,transparent 100%);
+    background-size:64px 64px, 64px 64px, 64px 64px;
+    background-position:310px 458px, 4px 2250px, 290px 3250px;
+  }
+}

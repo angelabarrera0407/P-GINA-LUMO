@@ -1,0 +1,202 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 3)
+   Se carga DESPUÉS de lumo-mejoras-2.css.
+   Cambios de esta ronda:
+   - Nubes más reales en los botones (con bultos arriba y abajo)
+   - Frase del inicio dentro de una nube verde petróleo
+   - Contáctanos con el fondo de color completo (sin bordes redondeados)
+   - Tarjetas de "¿Por qué es importante?" con más color
+   Para deshacerlos, quita el <link> de este archivo.
+   ========================================================= */
+
+
+/* =========================================================
+   BOTONES EN FORMA DE NUBE (con bultos arriba y abajo)
+   ========================================================= */
+
+nav > button,
+.lumo-buttons button,
+.pill,
+form button,
+dialog button,
+.community-main-link{
+  --c:var(--t);
+  background:transparent !important;
+  box-shadow:none;
+  padding:11px 30px;
+  isolation:isolate;
+}
+
+nav > button:hover,
+.lumo-buttons button:hover,
+.pill:hover,
+form button:hover,
+dialog button:hover{
+  --c:var(--b);
+  background:transparent !important;
+}
+
+.community-main-link:hover{
+  --c:var(--td);
+  background:transparent !important;
+}
+
+nav > button.on,
+nav > button.on:hover,
+.pill.on,
+.pill.on:hover{
+  --c:var(--td);
+  background:transparent !important;
+}
+
+nav > button::after,
+.lumo-buttons button::after,
+.pill::after,
+form button::after,
+dialog button::after,
+.community-main-link::after{
+  content:none !important;
+}
+
+nav > button::before,
+.lumo-buttons button::before,
+.pill::before,
+form button::before,
+dialog button::before,
+.community-main-link::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-10px;
+  right:-10px;
+  top:-10px;
+  bottom:-9px;
+  width:auto;
+  height:auto;
+  border-radius:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 11% 20% at 27% 32%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 16% 26% at 52% 28%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 11% 19% at 77% 34%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 10% 22% at 11% 52%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 10% 22% at 89% 52%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 12% 18% at 30% 72%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 15% 20% at 56% 74%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 11% 17% at 79% 72%,var(--c) 96%,#0000 100%),
+    linear-gradient(var(--c),var(--c)) 50% 52%/80% 44% no-repeat;
+}
+
+nav{
+  gap:20px 24px;
+  padding:20px 18px 14px;
+}
+
+.lumo-buttons{
+  gap:22px 22px;
+  padding-top:12px;
+}
+
+.need > div:not(.ph){
+  gap:48px;
+}
+
+form button{
+  margin-top:20px;
+  margin-left:12px;
+}
+
+.community-main-link{
+  margin-top:12px;
+}
+
+
+/* =========================================================
+   INICIO: FRASE DENTRO DE UNA NUBE
+   ========================================================= */
+
+.hero .intro{
+  position:relative;
+  isolation:isolate;
+  color:#fff;
+  padding:34px 80px;
+  margin:30px auto 14px;
+  max-width:880px;
+  --c:var(--petroleo);
+}
+
+.hero .intro::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-40px;
+  right:-40px;
+  top:-22px;
+  bottom:-20px;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 7.5% 22% at 10% 30%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 8% 20% at 24% 24%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 9% 19% at 41% 20%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 9% 20% at 59% 22%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 8% 21% at 76% 25%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 7% 22% at 91% 31%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 6% 26% at 6% 52%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 6% 26% at 94% 52%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 8% 20% at 14% 76%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 9% 18% at 32% 79%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 9% 18% at 50% 80%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 9% 18% at 68% 79%,var(--c) 96%,#0000 100%),
+    radial-gradient(ellipse 8% 20% at 86% 76%,var(--c) 96%,#0000 100%),
+    linear-gradient(var(--c),var(--c)) 50% 52%/88% 50% no-repeat;
+}
+
+
+/* =========================================================
+   CONTÁCTANOS: FONDO DE COLOR COMPLETO
+   ========================================================= */
+
+.contact{
+  border-radius:0;
+}
+
+
+/* =========================================================
+   ¿POR QUÉ ES IMPORTANTE? · tarjetas con más color
+   ========================================================= */
+
+.important-card{
+  background:#b4e2df;
+  border:2px solid #8fd0cc;
+  box-shadow:0 8px 20px #00665f1f;
+}
+
+.important-card h3{
+  color:var(--td);
+}
+
+.important-card p{
+  color:#1f3b3a;
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media(max-width:700px){
+
+  .hero .intro{
+    padding:30px 44px;
+    margin:26px 22px 12px;
+  }
+
+  .hero .intro::before{
+    left:-22px;
+    right:-22px;
+  }
+
+  nav{
+    padding:18px 10px 12px;
+  }
+}

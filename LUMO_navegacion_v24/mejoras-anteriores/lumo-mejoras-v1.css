@@ -1,0 +1,849 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES
+   Se carga DESPUÉS de Styles.css y comunidad.css.
+   No cambia la estructura ni el HTML: solo colores y detalles.
+   Para volver al diseño anterior, quita el <link> de este archivo.
+   ========================================================= */
+
+:root{
+  /* Paleta tomada del tablero de LUMO */
+  --rosa:#e16887;
+  --rosa-claro:#f5a6b8;
+  --azul:#7298c7;
+  --naranja:#f7ab1e;
+  --mostaza:#f5b643;
+  --menta:#82c9b7;
+  --petroleo:#12505d;
+  --petroleo-osc:#0d3d47;
+  --verde-gris:#629193;
+  --crema:#fffff9;
+
+  /* Variables que ya usaba tu diseño */
+  --t:var(--petroleo);
+  --td:var(--petroleo-osc);
+  --l:#f1f7ff;
+  --m:var(--menta);
+  --b:var(--azul);
+
+  /* Decoraciones (líneas suaves y manchas) */
+  --sq-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23c4d6ea' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 340 C20 180 120 40 250 70 C380 100 340 280 230 260 C120 240 170 110 280 130 C340 140 370 190 350 250'/%3E%3C/svg%3E");
+  --sq-mint:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23a9dccd' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 90 C120 -10 230 20 210 110 C190 200 70 190 90 290 C110 380 280 370 370 300'/%3E%3C/svg%3E");
+  --sq-pink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23f6b9c9' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 340 C20 180 120 40 250 70 C380 100 340 280 230 260 C120 240 170 110 280 130 C340 140 370 190 350 250'/%3E%3C/svg%3E");
+  --sq-orange:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23f9c35c' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 90 C120 -10 230 20 210 110 C190 200 70 190 90 290 C110 380 280 370 370 300'/%3E%3C/svg%3E");
+  --sq-gray:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23d2e0ea' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 90 C120 -10 230 20 210 110 C190 200 70 190 90 290 C110 380 280 370 370 300'/%3E%3C/svg%3E");
+  --b-pink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23e16887' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-orange:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f7ab1e' d='M20 60 C40 10 120 -5 165 35 C210 75 195 140 150 175 C105 210 40 190 15 140 C5 115 8 85 20 60Z'/%3E%3C/svg%3E");
+  --b-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%2312505d' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-mint:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%2382c9b7' d='M20 60 C40 10 120 -5 165 35 C210 75 195 140 150 175 C105 210 40 190 15 140 C5 115 8 85 20 60Z'/%3E%3C/svg%3E");
+  --b-lpink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23f5a6b8' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+  --b-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%237298c7' d='M20 60 C40 10 120 -5 165 35 C210 75 195 140 150 175 C105 210 40 190 15 140 C5 115 8 85 20 60Z'/%3E%3C/svg%3E");
+  --b-teal:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23629193' d='M45 15 C100 -10 175 15 185 80 C195 140 140 195 80 185 C20 175 -15 110 10 60 C20 40 30 25 45 15Z'/%3E%3C/svg%3E");
+}
+
+body{
+  color:#1d4f58;
+  background:var(--crema);
+}
+
+/* Las vistas recortan lo que sobresale a los lados */
+.lumo-view{
+  position:relative;
+  overflow-x:clip;
+}
+
+
+/* =========================================================
+   ESPACIOS PARA IMÁGENES (mismo tamaño, colores nuevos)
+   ========================================================= */
+
+.ph{
+  background:
+    var(--img) center/cover no-repeat,
+    repeating-linear-gradient(45deg,#eaf1fb 0 10px,#f6f9fe 10px 20px);
+  border-color:var(--azul);
+  color:#4f77a8;
+}
+
+.ph.con-img{
+  background:var(--img) center/cover no-repeat;
+}
+
+.community-support-image{
+  border-color:var(--rosa-claro);
+}
+
+
+/* =========================================================
+   MENÚ
+   ========================================================= */
+
+nav{
+  border-bottom:5px solid;
+  border-image:linear-gradient(90deg,var(--rosa),var(--naranja),var(--menta),var(--azul)) 1;
+  box-shadow:0 6px 18px #12505d14;
+}
+
+nav .ph{
+  background:var(--rosa-claro);
+  border:0;
+}
+
+button:hover{
+  background:var(--naranja);
+  color:var(--petroleo);
+}
+
+nav button.on,
+.pill.on{
+  background:var(--petroleo-osc);
+  color:#fff;
+  box-shadow:0 0 0 3px #fff,0 0 0 5px var(--rosa);
+}
+
+nav button.on:hover{
+  background:var(--petroleo-osc);
+  color:#fff;
+}
+
+.search-box input{
+  box-shadow:inset 0 0 0 2px #d7e4f5;
+}
+
+.search-box input:focus{
+  box-shadow:inset 0 0 0 2px var(--azul);
+}
+
+
+/* =========================================================
+   INICIO · ¿QUÉ ES LUMO?
+   ========================================================= */
+
+.hero{
+  background:linear-gradient(180deg,var(--l),#fdf3f5);
+}
+
+.about-lumo,
+.important-section,
+.needs-section{
+  position:relative;
+}
+
+.about-lumo > *,
+.important-section > *,
+.needs-section > *{
+  position:relative;
+  z-index:1;
+}
+
+.about-lumo::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-150px;
+  top:10px;
+  width:420px;
+  height:420px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.55;
+  pointer-events:none;
+}
+
+.about-lumo::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-80px;
+  bottom:0;
+  width:200px;
+  height:170px;
+  background:var(--b-lpink) center/contain no-repeat;
+  pointer-events:none;
+}
+
+.about-text .highlight-text{
+  color:var(--petroleo);
+}
+
+.about-text p{
+  color:#2f4a50;
+}
+
+
+/* =========================================================
+   INICIO · CONOCE A LUMO
+   ========================================================= */
+
+.meet-lumo{
+  position:relative;
+  background:#e2f2f1;
+}
+
+.meet-lumo > *{
+  position:relative;
+  z-index:1;
+}
+
+.meet-lumo::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-60px;
+  top:-50px;
+  width:230px;
+  height:210px;
+  background:var(--b-orange) center/contain no-repeat;
+  pointer-events:none;
+}
+
+.meet-lumo::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:8%;
+  bottom:-70px;
+  width:320px;
+  height:320px;
+  background:var(--sq-mint) center/contain no-repeat;
+  opacity:.6;
+  pointer-events:none;
+}
+
+.meet-text p{
+  color:#2f4a50;
+}
+
+.lumo-buttons button{
+  color:var(--petroleo);
+}
+
+.lumo-buttons button:nth-child(1){ background:var(--rosa-claro); }
+.lumo-buttons button:nth-child(2){ background:var(--mostaza); }
+.lumo-buttons button:nth-child(3){ background:#a9c1e0; }
+
+.lumo-buttons button:hover{
+  background:var(--petroleo);
+  color:#fff;
+}
+
+
+/* =========================================================
+   INICIO · ¿POR QUÉ ES IMPORTANTE?
+   ========================================================= */
+
+.important-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-160px;
+  top:90px;
+  width:400px;
+  height:400px;
+  background:var(--sq-pink) center/contain no-repeat;
+  opacity:.55;
+  pointer-events:none;
+}
+
+.important-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-100px;
+  bottom:90px;
+  width:210px;
+  height:190px;
+  background:var(--b-orange) center/contain no-repeat;
+  opacity:.9;
+  pointer-events:none;
+}
+
+.important-label{
+  background:var(--naranja);
+  color:var(--petroleo);
+  font-weight:800;
+  letter-spacing:.6px;
+}
+
+.important-card{
+  box-shadow:0 8px 20px #12505d12;
+}
+
+.important-card:nth-child(1){ background:#fcdbe4; }
+.important-card:nth-child(2){ background:#c9eadf; }
+.important-card:nth-child(3){ background:#fdeab6; }
+
+.important-card p{
+  color:#2f4a50;
+}
+
+.important-final{
+  background:var(--petroleo);
+  box-shadow:0 8px 20px #12505d26;
+}
+
+
+/* =========================================================
+   INICIO · ¿QUÉ NECESITA UN ANIMAL?
+   ========================================================= */
+
+.needs-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-140px;
+  top:40px;
+  width:400px;
+  height:400px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.5;
+  pointer-events:none;
+}
+
+.needs-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-100px;
+  bottom:60px;
+  width:220px;
+  height:200px;
+  background:var(--b-mint) center/contain no-repeat;
+  opacity:.85;
+  pointer-events:none;
+}
+
+.need .pill{
+  color:var(--petroleo);
+}
+
+.need > div:first-child .pill:nth-child(1){ background:var(--naranja); }
+.need > div:first-child .pill:nth-child(2){ background:var(--rosa-claro); }
+.need > div:first-child .pill:nth-child(3){ background:var(--menta); }
+.need > div:last-child .pill:nth-child(1){ background:#a9c1e0; }
+.need > div:last-child .pill:nth-child(2){ background:#f7c9d5; }
+.need > div:last-child .pill:nth-child(3){ background:#f5c76a; }
+
+.need .pill:hover{
+  filter:brightness(.95);
+  color:var(--petroleo);
+}
+
+.need .pill.on,
+.need .pill.on:hover{
+  background:var(--petroleo-osc);
+  color:#fff;
+  filter:none;
+}
+
+.tip{
+  background:#fff;
+  border:2px dashed var(--rosa-claro);
+  color:var(--petroleo);
+}
+
+
+/* =========================================================
+   CONTÁCTANOS
+   ========================================================= */
+
+.contact{
+  position:relative;
+  overflow:hidden;
+  background:var(--menta);
+}
+
+.contact > *{
+  position:relative;
+  z-index:1;
+}
+
+.contact::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-70px;
+  top:40px;
+  width:240px;
+  height:220px;
+  background:var(--b-orange) center/contain no-repeat;
+  pointer-events:none;
+}
+
+.contact::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-80px;
+  bottom:-50px;
+  width:250px;
+  height:230px;
+  background:var(--b-pink) center/contain no-repeat;
+  pointer-events:none;
+}
+
+.card{
+  background:var(--crema);
+  box-shadow:0 12px 30px #12505d26;
+}
+
+input,
+textarea{
+  box-shadow:inset 0 0 0 2px #d9e5f2;
+}
+
+input:focus,
+textarea:focus{
+  outline:none;
+  box-shadow:inset 0 0 0 2px var(--azul);
+}
+
+form button{
+  background:var(--petroleo);
+  color:#fff;
+}
+
+form button:hover{
+  background:var(--rosa);
+  color:#fff;
+}
+
+.err{
+  color:#b3302b;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+  background:var(--petroleo);
+  border-top:5px solid;
+  border-image:linear-gradient(90deg,var(--azul),var(--menta),var(--naranja),var(--rosa)) 1;
+}
+
+footer .lk:hover{
+  color:#fff;
+  background:none;
+}
+
+
+/* =========================================================
+   COMUNIDAD LUMO
+   ========================================================= */
+
+.community-hero{
+  position:relative;
+  background:linear-gradient(135deg,var(--l),#fdf1f4);
+}
+
+.community-hero > *,
+.community-support > *,
+.community-social > *{
+  position:relative;
+  z-index:1;
+}
+
+.community-hero::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-60px;
+  top:-70px;
+  width:240px;
+  height:220px;
+  background:var(--b-dark) center/contain no-repeat;
+  pointer-events:none;
+}
+
+.community-hero::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-70px;
+  bottom:-90px;
+  width:320px;
+  height:320px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.6;
+  pointer-events:none;
+}
+
+.community-kicker{
+  color:#a03356;
+}
+
+.community-hero p,
+.community-support-copy p,
+.community-social-copy p{
+  color:#2f4a50;
+}
+
+.community-main-link{
+  background:var(--petroleo);
+}
+
+.community-main-link:hover{
+  background:var(--rosa);
+  color:#fff;
+}
+
+/* Accesos rápidos */
+
+#comunidad-accesos{
+  position:relative;
+}
+
+#comunidad-accesos > *{
+  position:relative;
+  z-index:1;
+}
+
+#comunidad-accesos::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-130px;
+  top:20px;
+  width:340px;
+  height:340px;
+  background:var(--sq-pink) center/contain no-repeat;
+  opacity:.5;
+  pointer-events:none;
+}
+
+#comunidad-accesos::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-90px;
+  bottom:20px;
+  width:200px;
+  height:180px;
+  background:var(--b-mint) center/contain no-repeat;
+  opacity:.8;
+  pointer-events:none;
+}
+
+.community-subtitle{
+  color:#456067;
+}
+
+.community-shortcut:nth-child(1){ background:#fdeef2; border-color:#f6c9d5; }
+.community-shortcut:nth-child(2){ background:#fff3d6; border-color:#f6dca0; }
+.community-shortcut:nth-child(3){ background:#e6f5f0; border-color:#bde3d5; }
+
+.community-shortcut:nth-child(1) .community-symbol{ background:var(--rosa-claro); color:var(--petroleo); }
+.community-shortcut:nth-child(2) .community-symbol{ background:var(--mostaza); color:var(--petroleo); }
+.community-shortcut:nth-child(3) .community-symbol{ background:var(--menta); color:var(--petroleo); }
+
+.community-shortcut:hover{
+  box-shadow:0 12px 26px #12505d1f;
+}
+
+.community-shortcut p{
+  color:#37555c;
+}
+
+/* Acompañamiento */
+
+.community-support{
+  position:relative;
+  overflow:hidden;
+  background:#fdeaf0;
+}
+
+.community-support::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-80px;
+  top:-80px;
+  width:340px;
+  height:340px;
+  background:var(--sq-pink) center/contain no-repeat;
+  opacity:.7;
+  pointer-events:none;
+}
+
+.community-support::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-70px;
+  bottom:-70px;
+  width:190px;
+  height:170px;
+  background:var(--b-orange) center/contain no-repeat;
+  opacity:.85;
+  pointer-events:none;
+}
+
+.community-support-copy h2{
+  color:#9c2f55;
+}
+
+.community-support-copy .community-kicker{
+  color:#a03356;
+}
+
+.support-options a{
+  border-color:var(--rosa-claro);
+  color:#8a2a4b;
+}
+
+.support-options a:hover{
+  background:#fcd6e0;
+}
+
+.support-detail{
+  border-color:#d9e6f3;
+  box-shadow:0 6px 16px #12505d0d;
+}
+
+.support-detail:nth-child(1){ border-top:5px solid var(--rosa-claro); }
+.support-detail:nth-child(2){ border-top:5px solid var(--mostaza); }
+
+/* Fundaciones */
+
+#ayudar{
+  position:relative;
+}
+
+#ayudar > *{
+  position:relative;
+  z-index:1;
+}
+
+#ayudar::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-150px;
+  top:60px;
+  width:380px;
+  height:380px;
+  background:var(--sq-blue) center/contain no-repeat;
+  opacity:.45;
+  pointer-events:none;
+}
+
+#ayudar::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-100px;
+  bottom:40px;
+  width:190px;
+  height:170px;
+  background:var(--b-pink) center/contain no-repeat;
+  opacity:.85;
+  pointer-events:none;
+}
+
+.community-card{
+  border-color:#dbe6f2;
+  box-shadow:0 6px 16px #12505d0d;
+}
+
+.community-card:nth-child(4n+1){ border-top:5px solid var(--rosa); }
+.community-card:nth-child(4n+2){ border-top:5px solid var(--naranja); }
+.community-card:nth-child(4n+3){ border-top:5px solid var(--menta); }
+.community-card:nth-child(4n+4){ border-top:5px solid var(--azul); }
+
+.community-card:hover{
+  box-shadow:0 12px 26px #12505d1f;
+}
+
+.community-tag{
+  color:#a03356;
+}
+
+.community-card p,
+.story-card p,
+.support-detail p{
+  color:#37555c;
+}
+
+.community-grid,
+.stories-track{
+  scrollbar-color:var(--rosa-claro) transparent;
+}
+
+.community-grid::-webkit-scrollbar-thumb,
+.stories-track::-webkit-scrollbar-thumb{
+  background:var(--rosa-claro);
+}
+
+/* Historias */
+
+.stories-section{
+  position:relative;
+  overflow:hidden;
+  background:#fff4dc;
+}
+
+.stories-section > *{
+  position:relative;
+  z-index:1;
+}
+
+.stories-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-100px;
+  top:-40px;
+  width:360px;
+  height:360px;
+  background:var(--sq-orange) center/contain no-repeat;
+  opacity:.5;
+  pointer-events:none;
+}
+
+.stories-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-80px;
+  bottom:-60px;
+  width:210px;
+  height:190px;
+  background:var(--b-mint) center/contain no-repeat;
+  opacity:.85;
+  pointer-events:none;
+}
+
+.story-card{
+  box-shadow:0 6px 16px #12505d12;
+}
+
+.story-share-card{
+  border:2px dashed var(--rosa);
+}
+
+.community-note{
+  color:#4d676d;
+}
+
+/* Redes */
+
+.community-social{
+  position:relative;
+  overflow:hidden;
+  background:#d9f1e8;
+}
+
+.community-social::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-60px;
+  top:-50px;
+  width:320px;
+  height:320px;
+  background:var(--sq-gray) center/contain no-repeat;
+  opacity:.9;
+  pointer-events:none;
+}
+
+.community-social::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-50px;
+  bottom:-60px;
+  width:180px;
+  height:165px;
+  background:var(--b-pink) center/contain no-repeat;
+  opacity:.9;
+  pointer-events:none;
+}
+
+.social-links a{
+  border-color:var(--petroleo);
+  color:var(--petroleo);
+}
+
+.social-links a:hover{
+  background:var(--petroleo);
+  color:#fff;
+}
+
+/* Próximamente (Juega con LUMO) */
+
+.coming-soon-card{
+  box-shadow:0 12px 30px #12505d1a;
+}
+
+
+/* =========================================================
+   MÓVIL: decoraciones más pequeñas para no estorbar
+   ========================================================= */
+
+@media(max-width:700px){
+
+  .about-lumo::before,
+  .needs-section::before,
+  .important-section::before,
+  #comunidad-accesos::before,
+  #ayudar::before,
+  .stories-section::before,
+  .community-support::before,
+  .community-social::before,
+  .meet-lumo::after,
+  .community-hero::after{
+    width:220px;
+    height:220px;
+    opacity:.4;
+  }
+
+  .about-lumo::after,
+  .important-section::after,
+  .needs-section::after,
+  #comunidad-accesos::after,
+  #ayudar::after,
+  .stories-section::after,
+  .community-support::after,
+  .community-social::after,
+  .contact::before,
+  .contact::after,
+  .meet-lumo::before,
+  .community-hero::before{
+    width:110px;
+    height:100px;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL: evita que imágenes de ancho fijo desborden la pantalla
+   ========================================================= */
+
+@media(max-width:700px){
+
+  .about-content > *,
+  .meet-lumo > *,
+  .card > *,
+  .need > *{
+    min-width:0;
+  }
+
+  .about-image,
+  .meet-image .ph{
+    width:100% !important;
+    left:0 !important;
+  }
+
+  .need .ph{
+    width:100% !important;
+    max-width:320px;
+    margin:0 auto;
+    height:auto !important;
+    aspect-ratio:1/1;
+  }
+
+  .need div:not(.ph){
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+}

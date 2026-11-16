@@ -1,0 +1,30 @@
+/* =========================================================
+   LUMO · MEJORAS 14
+   1) Se quitan TODAS las líneas y círculos decorativos del fondo
+      (Inicio y Comunidad). Solo quedan las huellitas y huesitos.
+   2) Se sube "¿Sabes qué necesita un animal para estar bien?" y se
+      nivela el espacio de arriba y de abajo de esa sección.
+   No toca imágenes ni sus rutas.
+   ========================================================= */
+
+/* 1) Sin líneas ni círculos */
+.about-lumo::before,.about-lumo::after,
+.meet-lumo::before,.meet-lumo::after,
+.important-section::before,.important-section::after,
+.needs-section::before,.needs-section::after,
+.contact::before,.contact::after,
+.community-hero::before,.community-hero::after,
+#comunidad-accesos::before,#comunidad-accesos::after,
+.community-support::before,.community-support::after,
+#ayudar::before,#ayudar::after,
+.stories-section::before,.stories-section::after,
+.community-social::before,.community-social::after{
+  content:none !important;
+  background:none !important;
+}
+
+/* 2) Espacio de la sección "¿Sabes qué necesita un animal?" */
+.needs-section{
+  padding-top:0;
+  padding-bottom:75px;
+}

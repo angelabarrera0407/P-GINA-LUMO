@@ -1,0 +1,54 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 7)
+   Se carga DESPUÉS de lumo-mejoras-6b.css.
+   Cambios de esta ronda:
+   - Footer (Servicios y Profesionales) con el mismo fondo de Contáctanos (#12505d)
+   - Tamaños de texto como en el original, excepto los mini subtítulos
+     (h3 y títulos del footer), que suben 1 punto
+   Para deshacerlos, quita el <link> de este archivo.
+   ========================================================= */
+
+
+/* ---------- FOOTER: mismo color que Contáctanos ---------- */
+
+footer{
+  background:#007f7b;
+  color:#fff;
+  border-top:1px solid #ffffff2e;
+}
+
+footer h4{
+  border-bottom-color:#ffffff80;
+}
+
+footer .lk,
+footer .lk:hover{
+  color:#fff;
+}
+
+footer .ft .out{
+  border-color:#fff;
+}
+
+
+/* ---------- MINI SUBTÍTULOS (+1) ---------- */
+
+h3,
+.important-card h3{ font-size:17px; }
+
+.community-card h3{ font-size:18px; }
+
+footer h4{ font-size:15px; }
+
+
+/* ---------- FRASE INICIAL: fondo petróleo con opacidad baja, letra petróleo ---------- */
+
+.hero .intro{
+  background:rgba(18,80,93,.14);
+  color:var(--petroleo);
+}
+
+
+/* ---------- ¿QUÉ ES LUMO?: frase destacada un poco más grande ---------- */
+
+.about-text .highlight-text{ font-size:17px; }

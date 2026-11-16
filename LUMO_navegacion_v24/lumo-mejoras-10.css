@@ -1,0 +1,26 @@
+/* =========================================================
+   LUMO · MEJORAS VISUALES (versión 10)
+   Se carga DESPUÉS de lumo-mejoras-9.css.
+   Portada de Inicio (PORTADALUMO.png): se ve COMPLETA en cualquier
+   pantalla. Ocupa todo el ancho y su alto se calcula solo con la
+   proporción de la imagen, así no se recorta ni se deforma.
+   La portada también tiene las esquinas cuadradas (sin redondear).
+   La proporción se toma sola de la imagen (ver el <script> de index.html);
+   el valor de abajo solo se usa mientras la imagen carga.
+   Para deshacerlo, quita el <link> de este archivo.
+   ========================================================= */
+
+.hero .scene{
+  /* Proporción provisional (ancho / alto); luego se ajusta sola a la imagen */
+  aspect-ratio:3840 / 1000;
+  border-radius:0;
+  width:100%;
+  height:auto !important;
+  min-height:0 !important;
+}
+
+/* La imagen se ajusta exacto a la caja (la caja ya tiene su misma proporción) */
+.hero .scene.con-img{
+  background-size:100% 100%;
+  background-position:center;
+}

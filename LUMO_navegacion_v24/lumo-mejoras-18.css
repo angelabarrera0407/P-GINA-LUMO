@@ -1,0 +1,83 @@
+/* =========================================================
+   LUMO · MEJORAS 18
+   1) Frase de Inicio (arriba de la foto principal) y frase final
+      de "¿Por qué es importante?": letra más pequeña, caja ajustada
+      al texto y sin palabras huérfanas en la última línea.
+   2) Comunidad · redes sociales: los 4 íconos del mismo color
+      (#7298c7), planos y minimalistas, en "negativo".
+   Se carga DESPUÉS de lumo-mejoras-17.css.
+   Para deshacerlo, quita el <link> de este archivo en index.html.
+   ========================================================= */
+
+:root{
+  --redes-color:#7298c7;
+}
+
+
+/* ---------- 1) FRASES: caja al ras del texto, sin huérfanas ---------- */
+
+.hero .intro,
+.important-section .important-final{
+  width:fit-content;          /* la caja mide lo que mide el texto */
+  max-width:min(620px, calc(100% - 36px));
+  margin-left:auto;
+  margin-right:auto;
+  padding:12px 26px;
+  border-radius:18px;
+  font-size:14px;
+  line-height:1.45;
+  text-wrap:balance;          /* reparte las líneas parejas: no queda una palabra sola */
+}
+
+.hero .intro{
+  margin-top:16px;
+  margin-bottom:6px;
+}
+
+.important-section .important-final{
+  margin-top:32px;
+  box-shadow:0 8px 20px #00665f1f;
+}
+
+@media(max-width:700px){
+  .hero .intro,
+  .important-section .important-final{
+    padding:10px 18px;
+    font-size:13px;
+    border-radius:16px;
+  }
+}
+
+
+/* ---------- 2) ÍCONOS DE REDES: un solo color, en negativo ---------- */
+
+.social-links a.social-icon,
+.social-links a.social-icon.ig,
+.social-links a.social-icon.fb,
+.social-links a.social-icon.tt,
+.social-links a.social-icon.yt,
+.social-links a.social-icon:hover,
+.social-links a.social-icon.ig:hover,
+.social-links a.social-icon.fb:hover,
+.social-links a.social-icon.tt:hover,
+.social-links a.social-icon.yt:hover{
+  background:var(--redes-color);   /* mismo color para todos */
+  color:#fff;                      /* el dibujo queda "recortado" como en negativo */
+  box-shadow:none;
+}
+
+.social-links a.social-icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+}
+
+.social-links a.social-icon svg{
+  width:24px;
+  height:24px;
+}
+
+.social-links a.social-icon:hover{
+  transform:translateY(-2px);
+  filter:brightness(.92);
+}
